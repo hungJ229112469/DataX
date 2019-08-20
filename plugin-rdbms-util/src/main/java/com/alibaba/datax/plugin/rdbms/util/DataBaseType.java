@@ -15,10 +15,11 @@ public enum DataBaseType {
     DRDS("drds", "com.mysql.jdbc.Driver"),
     Oracle("oracle", "oracle.jdbc.OracleDriver"),
     SQLServer("sqlserver", "com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+    SQLServer2000("sqlserver", "com.microsoft.jdbc.sqlserver.SQLServerDriver"),
     PostgreSQL("postgresql", "org.postgresql.Driver"),
     RDBMS("rdbms", "com.alibaba.datax.plugin.rdbms.util.DataBaseType"),
     DB2("db2", "com.ibm.db2.jcc.DB2Driver"),
-    ADS("ads","com.mysql.jdbc.Driver");
+    ADS("ads", "com.mysql.jdbc.Driver");
 
 
     private String typeName;
@@ -50,10 +51,12 @@ public enum DataBaseType {
                 break;
             case SQLServer:
                 break;
+            case SQLServer2000:
+                break;
             case DB2:
                 break;
             case PostgreSQL:
-            	break;
+                break;
             case RDBMS:
                 break;
             default:
@@ -87,10 +90,12 @@ public enum DataBaseType {
                 break;
             case SQLServer:
                 break;
+            case SQLServer2000:
+                break;
             case DB2:
                 break;
             case PostgreSQL:
-            	break;
+                break;
             case RDBMS:
                 break;
             default:
@@ -115,9 +120,14 @@ public enum DataBaseType {
                     result = splitPk.substring(1, splitPk.length() - 1).toLowerCase();
                 }
                 break;
+            case SQLServer2000:
+                if (splitPk.length() >= 2 && splitPk.startsWith("[") && splitPk.endsWith("]")) {
+                    result = splitPk.substring(1, splitPk.length() - 1).toLowerCase();
+                }
+                break;
             case DB2:
             case PostgreSQL:
-            	break;
+                break;
             default:
                 throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, "unsupported database type.");
         }
@@ -136,6 +146,9 @@ public enum DataBaseType {
             case Oracle:
                 break;
             case SQLServer:
+                result = "[" + columnName + "]";
+                break;
+            case SQLServer2000:
                 result = "[" + columnName + "]";
                 break;
             case DB2:
@@ -158,6 +171,8 @@ public enum DataBaseType {
             case Oracle:
                 break;
             case SQLServer:
+                break;
+            case SQLServer2000:
                 break;
             case DB2:
                 break;
@@ -187,6 +202,7 @@ public enum DataBaseType {
         }
         return null;
     }
+
     public String getTypeName() {
         return typeName;
     }
