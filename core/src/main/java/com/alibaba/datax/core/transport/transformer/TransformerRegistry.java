@@ -31,6 +31,7 @@ public class TransformerRegistry {
          * local storage and from server will be delay load.
          */
 
+        registTransformer(new MD5Transformer());
         registTransformer(new SubstrTransformer());
         registTransformer(new PadTransformer());
         registTransformer(new ReplaceTransformer());
