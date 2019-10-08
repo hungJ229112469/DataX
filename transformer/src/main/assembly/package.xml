@@ -9,11 +9,25 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
+            <directory>src/main/resources</directory>
+            <includes>
+            </includes>
+            <outputDirectory>local_storage/transformer</outputDirectory>
+        </fileSet>
+        <fileSet>
             <directory>target/</directory>
             <includes>
                 <include>datax-transformer-0.0.1-SNAPSHOT.jar</include>
             </includes>
             <outputDirectory>/lib</outputDirectory>
+        </fileSet>
+        <!-- 身份证件号15位转18位插件 -->
+        <fileSet>
+            <directory>target/</directory>
+            <includes>
+                <include>datax-transformer-0.0.1-SNAPSHOT.jar</include>
+            </includes>
+            <outputDirectory>/local_storage/transformer/sfzjh</outputDirectory>
         </fileSet>
    </fileSets>
 
