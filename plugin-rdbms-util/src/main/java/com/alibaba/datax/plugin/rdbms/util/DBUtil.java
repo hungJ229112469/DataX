@@ -426,7 +426,11 @@ public final class DBUtil {
         Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
                 ResultSet.CONCUR_READ_ONLY);
         stmt.setFetchSize(fetchSize);
-        stmt.setQueryTimeout(queryTimeout);
+        try {
+            stmt.setQueryTimeout(queryTimeout);
+        } catch (SQLException e) {
+            LOG.warn(e.getMessage());
+        }
         return query(stmt, sql);
     }
 

@@ -64,6 +64,7 @@
         <!--        <module>hbase11xreader</module>-->
         <!--        <module>hbase094xreader</module>-->
         <!--        <module>opentsdbreader</module>-->
+        <module>hivereader</module>
 
         <!-- writer -->
         <module>mysqlwriter</module>

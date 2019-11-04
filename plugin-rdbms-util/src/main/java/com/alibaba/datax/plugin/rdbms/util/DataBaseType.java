@@ -19,6 +19,7 @@ public enum DataBaseType {
     PostgreSQL("postgresql", "org.postgresql.Driver"),
     RDBMS("rdbms", "com.alibaba.datax.plugin.rdbms.util.DataBaseType"),
     DB2("db2", "com.ibm.db2.jcc.DB2Driver"),
+    Hive("hive","org.apache.hive.jdbc.HiveDriver"),
     ADS("ads", "com.mysql.jdbc.Driver");
 
 
@@ -59,6 +60,8 @@ public enum DataBaseType {
                 break;
             case RDBMS:
                 break;
+            case Hive:
+                break;
             default:
                 throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, "unsupported database type.");
         }
@@ -98,6 +101,8 @@ public enum DataBaseType {
                 break;
             case RDBMS:
                 break;
+            case Hive:
+                break;
             default:
                 throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, "unsupported database type.");
         }
@@ -126,6 +131,7 @@ public enum DataBaseType {
                 }
                 break;
             case DB2:
+            case Hive:
             case PostgreSQL:
                 break;
             default:
