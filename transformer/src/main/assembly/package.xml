@@ -29,6 +29,20 @@
             </includes>
             <outputDirectory>/local_storage/transformer/sfzjh</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>target/</directory>
+            <includes>
+                <include>datax-transformer-0.0.1-SNAPSHOT.jar</include>
+            </includes>
+            <outputDirectory>/local_storage/transformer/md5</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/</directory>
+            <includes>
+                <include>datax-transformer-0.0.1-SNAPSHOT.jar</include>
+            </includes>
+            <outputDirectory>/local_storage/transformer/mapping</outputDirectory>
+        </fileSet>
    </fileSets>
 
     <dependencySets>

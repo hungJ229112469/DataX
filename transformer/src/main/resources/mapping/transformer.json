@@ -1,0 +1,4 @@
+{
+	"class":"com.alibaba.datax.transformer.MappingTransformer",
+	"name":"mapping"
+}
