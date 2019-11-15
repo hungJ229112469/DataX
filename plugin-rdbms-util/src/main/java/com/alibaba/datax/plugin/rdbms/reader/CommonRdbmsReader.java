@@ -17,10 +17,7 @@ import com.alibaba.datax.plugin.rdbms.reader.util.OriginalConfPretreatmentUtil;
 import com.alibaba.datax.plugin.rdbms.reader.util.PreCheckTask;
 import com.alibaba.datax.plugin.rdbms.reader.util.ReaderSplitUtil;
 import com.alibaba.datax.plugin.rdbms.reader.util.SingleTableSplitUtil;
-import com.alibaba.datax.plugin.rdbms.util.DBUtil;
-import com.alibaba.datax.plugin.rdbms.util.DBUtilErrorCode;
-import com.alibaba.datax.plugin.rdbms.util.DataBaseType;
-import com.alibaba.datax.plugin.rdbms.util.RdbmsException;
+import com.alibaba.datax.plugin.rdbms.util.*;
 import com.google.common.collect.Lists;
 
 import org.apache.commons.lang3.StringUtils;
@@ -204,16 +201,11 @@ public class CommonRdbmsReader {
 
                 long rsNextUsedTime = 0;
                 long lastTime = System.nanoTime();
-                int num = 0;
                 while (rs.next()) {
                     rsNextUsedTime += (System.nanoTime() - lastTime);
                     this.transportOneRecord(recordSender, rs,
                             metaData, columnNumber, mandatoryEncoding, taskPluginCollector);
                     lastTime = System.nanoTime();
-                    num++;
-                    if (num % 5000 == 0) {
-                        LOG.info("已采集数据{}条...", num);
-                    }
                 }
 
                 allResultPerfRecord.end(rsNextUsedTime);

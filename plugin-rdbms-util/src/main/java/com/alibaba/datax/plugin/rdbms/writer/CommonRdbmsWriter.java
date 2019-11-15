@@ -272,7 +272,6 @@ public class CommonRdbmsWriter {
             int bufferBytes = 0;
             try {
                 Record record;
-                int num = 0;
                 while ((record = recordReceiver.getFromReader()) != null) {
                     if (record.getColumnNumber() != this.columnNumber) {
                         // 源头读取字段列数与目的表字段写入列数不相等，直接报错
@@ -288,16 +287,11 @@ public class CommonRdbmsWriter {
                     writeBuffer.add(record);
                     bufferBytes += record.getMemorySize();
 
-                    num++;
-                    if (num % 5000 == 0) {
-                        LOG.info("已插入{}条数据", num);
-                    }
                     if (writeBuffer.size() >= batchSize || bufferBytes >= batchByteSize) {
                         doBatchInsert(connection, writeBuffer);
                         writeBuffer.clear();
                         bufferBytes = 0;
                     }
-
                 }
                 if (!writeBuffer.isEmpty()) {
                     doBatchInsert(connection, writeBuffer);
