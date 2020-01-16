@@ -56,7 +56,7 @@
         <!--        <module>otsreader</module>-->
         <!--        <module>otsstreamreader</module>-->
         <!--        <module>txtfilereader</module>-->
-        <module>hdfsreader</module>
+        <!--        <module>hdfsreader</module>-->
         <!--        <module>streamreader</module>-->
         <!--        <module>ossreader</module>-->
         <!--        <module>ftpreader</module>-->
@@ -65,9 +65,9 @@
         <!--        <module>hbase11xreader</module>-->
         <!--        <module>hbase094xreader</module>-->
         <!--        <module>opentsdbreader</module>-->
-        <module>tsdbreader</module>
-        <module>opentsdbreader</module>
-        <module>cassandrareader</module>
+        <!--        <module>tsdbreader</module>-->
+        <!--        <module>opentsdbreader</module>-->
+        <!--        <module>cassandrareader</module>-->
         <module>hivereader</module>
 
         <!-- writer -->
@@ -76,7 +76,7 @@
         <!--        <module>odpswriter</module>-->
         <!--        <module>txtfilewriter</module>-->
         <!--        <module>ftpwriter</module>-->
-        <module>hdfswriter</module>
+        <!--                <module>hdfswriter</module>-->
         <!--        <module>streamwriter</module>-->
         <!--        <module>otswriter</module>-->
         <module>oraclewriter</module>
@@ -95,7 +95,7 @@
         <!--        <module>tsdbwriter</module>-->
         <!--        <module>adbpgwriter</module>-->
         <!--        <module>gdbwriter</module>-->
-        <module>cassandrawriter</module>
+        <!--        <module>cassandrawriter</module>-->
 
         <!-- common support module -->
         <module>plugin-rdbms-util</module>
@@ -170,13 +170,13 @@
                 <artifactId>junit</artifactId>
                 <version>${junit-version}</version>
             </dependency>
-<!--            <dependency>
-                <groupId>jdk.tools</groupId>
-                <artifactId>jdk.tools</artifactId>
-                <version>1.7</version>
-                <scope>system</scope>
-                <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
-            </dependency>-->
+            <!--            <dependency>
+                            <groupId>jdk.tools</groupId>
+                            <artifactId>jdk.tools</artifactId>
+                            <version>1.7</version>
+                            <scope>system</scope>
+                            <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+                        </dependency>-->
 
             <dependency>
                 <groupId>org.mockito</groupId>
